@@ -131,8 +131,8 @@ class StudentHomeController extends Controller
                     $soluongdadangky = DanhSachDangKy::where('danhsach_thoigiansd',  $danhsach_thoigiansd)
                         ->where('tiet_id', $tiet_id)
                         ->where('phong_id',  $phong_after_check_id)
-                        ->where('danhsach_tinhtrang', 1)
-                        ->count();
+                        ->sum('danhsach_soluong');
+                    //dd($soluongdadangky);
 
                     //Tìm tổng số lượng amys của phòng theo phong_id
                     $phong = Phong::where('id', $phong_after_check_id)->first();

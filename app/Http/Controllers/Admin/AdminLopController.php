@@ -13,7 +13,7 @@ class AdminLopController extends Controller
      public function index() {
         $page_title = 'Quản Lý Lớp';
         $nganh = Nganh::all();
-        $lop = Lop::orderBy('id', 'asc')->with('nganh')->get();
+        $lop = Lop::orderBy('id', 'asc')->with('nganh')->paginate(10);
         return view('admin.lop.index', compact('page_title', 'nganh', 'lop'));
     }
 

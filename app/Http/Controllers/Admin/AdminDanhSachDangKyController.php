@@ -56,10 +56,9 @@ class AdminDanhSachDangKyController extends Controller
 
         //Lấy ra số lượng đã đăng ký được duyệt ngày, phòng, tiết
         $soluongdadangky = DanhSachDangKy::where('danhsach_thoigiansd',  $danhsach_thoigiansd)
-            ->where('tiet_id', $tiet_id)
-            ->where('phong_id',  $phong_id)
-            ->where('danhsach_tinhtrang', 1)
-            ->count();
+                        ->where('tiet_id', $tiet_id)
+                        ->where('phong_id',  $danhsach->phong_id)
+                        ->sum('danhsach_soluong');
 
         //Lấy ra số máy hỏng của phòng
         $soluongmayhong = May::where('phong_id', $phong_id)

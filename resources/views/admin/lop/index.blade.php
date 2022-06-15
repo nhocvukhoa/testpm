@@ -49,6 +49,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class=" col-sm-12 text-right text-center-xs mt-2">
+                <div class="pagination d-flex justify-content-center"> {{$lop->links('paginationlinks')}}</div>
+            </div>
         </div>
     </div>
     @endsection
